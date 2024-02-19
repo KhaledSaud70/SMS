@@ -96,14 +96,13 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
                                     args=args,
                                     image_encoder=None)
     val_iterator = iter(val_dataloader)
-    print('LEN VAL', len(val_dataloader))
+
     images0 = []
     texts0 = []
     images1 = []
     texts1 = []
     match = None
     while True:
-        print("count")
         val_batch = next(val_iterator)
         img, txt = val_batch[0], val_batch[1]
         if match is None:
@@ -124,17 +123,15 @@ def flyp_loss_few_shot(args, clip_encoder, classification_head, logger):
 
     img = torch.stack(images0 + images1, dim=0)
     txt = torch.tensor(texts0 + texts1, dtype=torch.long)
-    print("here")
-    print(img.shpae, txt.shpae)
 
-    # val_batch = [img, txt]
+    val_batch = [img, txt]
 
-    # max_val = 0
-    # min_cnt_loss = 1e10
+    max_val = 0
+    min_cnt_loss = 1e10
 
-    # val_dataset = val_dataset_class(model.module.val_preprocess,
-    #                                 location=args.data_location,
-    #                                 batch_size=args.batch_size)
+    val_dataset = val_dataset_class(model.val_preprocess,
+                                    location=args.data_location,
+                                    batch_size=args.batch_size)
     # model_copy = None
     # for epoch in range(-1, args.epochs):
     #     print("Epoch : ", epoch)
