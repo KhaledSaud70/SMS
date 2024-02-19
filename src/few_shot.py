@@ -7,7 +7,6 @@ from src.models.modeling import CLIPEncoder
 from src.args import parse_arguments
 import logging
 
-
 def main(args):
     assert args.k in [4, 16, 32], 'please specify correct k'
     
@@ -43,18 +42,18 @@ def main(args):
 
         val_acc, test_acc = flyp_loss_few_shot(args, clip_encoder,
                                                classification_head, logger)
-        logger.info(f'Val {val_acc} {test_acc}')
-        val_accs.append(val_acc)
-        test_accs.append(test_acc)
+    #     logger.info(f'Val {val_acc} {test_acc}')
+    #     val_accs.append(val_acc)
+    #     test_accs.append(test_acc)
 
-    log_dir = "expt_logs/" + args.exp_name + "/" + "_BS" + str(
-        args.batch_size) + "_WD" + str(args.wd) + "_LR" + str(args.lr) + "_run" + str(args.run)
-    os.makedirs(log_dir, exist_ok=True)
-    with open(log_dir + '/stats_final.txt', 'w') as f:
-        f.write(f'Val: {round(np.mean(val_accs),4)}\n')
-        f.write(f'Test: {round(np.mean(test_accs),4)}\n')
-        f.write(f'ValDev: {round(np.std(val_accs),4)}\n')
-        f.write(f'TestDev: {round(np.std(test_accs),4)}\n')
+    # log_dir = "expt_logs/" + args.exp_name + "/" + "_BS" + str(
+    #     args.batch_size) + "_WD" + str(args.wd) + "_LR" + str(args.lr) + "_run" + str(args.run)
+    # os.makedirs(log_dir, exist_ok=True)
+    # with open(log_dir + '/stats_final.txt', 'w') as f:
+    #     f.write(f'Val: {round(np.mean(val_accs),4)}\n')
+    #     f.write(f'Test: {round(np.mean(test_accs),4)}\n')
+    #     f.write(f'ValDev: {round(np.std(val_accs),4)}\n')
+    #     f.write(f'TestDev: {round(np.std(test_accs),4)}\n')
 
 
 if __name__ == '__main__':
