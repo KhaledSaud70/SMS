@@ -1,0 +1,9 @@
+filepath	caption
+./data/sst2/train/negative/20231030_075835.jpg	a negative review of a movie.
+./data/sst2/train/negative/20231030_075739.jpg	a negative review of a movie.
+./data/sst2/train/negative/20231030_092947.jpg	a negative review of a movie.
+./data/sst2/train/negative/20231030_075815.jpg	a negative review of a movie.
+./data/sst2/train/positive/20231030_082557.jpg	a positive review of a movie.
+./data/sst2/train/positive/20231030_082515.jpg	a positive review of a movie.
+./data/sst2/train/positive/20231030_072828.jpg	a positive review of a movie.
+./data/sst2/train/positive/20231030_082459.jpg	a positive review of a movie.
