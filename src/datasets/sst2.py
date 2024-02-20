@@ -56,11 +56,9 @@ class sst2:
         self.num_workers = num_workers
         self.k = k
         if self.k is not None:
-            print("kkkkkkk")
             self.train_location = os.path.join(location, 'sst2',
                                                f'train_shot_{self.k}')
         else:
-            print('Not kkkkk')
             self.train_location = os.path.join(location, 'sst2', 'train')
 
         print("Loading Train Data from ", self.train_location)
@@ -72,7 +70,6 @@ class sst2:
             shuffle=True,
             num_workers=self.num_workers)
         if custom:
-            print('CUSTOM*******')
             self.train_dataset_custom = CustomDataset(root=self.train_location,
                                                       transform=preprocess)
             self.train_loader_custom = torch.utils.data.DataLoader(
